@@ -31,7 +31,7 @@ services:
       - ME_CONFIG_BASICAUTH_USERNAME=admin
       - ME_CONFIG_BASICAUTH_PASSWORD=pass
     ports:
-      - "8081:8081"
+      - "8091:8091"
     networks:
       - mongo_network
 
