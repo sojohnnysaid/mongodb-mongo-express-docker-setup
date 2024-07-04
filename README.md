@@ -53,3 +53,5 @@ Place any MongoDB data files into the file_drop_zone directory. These files can 
 Feel free to tweak the docker-compose.yml file to adjust environment variables such as MongoDB user credentials or to modify the Mongo-Express configuration to fit your needs.
 
 By following these steps, you can have a robust MongoDB setup with an easy-to-use management interface, ideal for development, testing, or even production environments with further customization. Enjoy your efficient and effective data management experience! 🚀
+
+<img width="1478" alt="image" src="https://github.com/sojohnnysaid/mongodb-mongo-express-docker-setup/assets/16521766/773dcb41-6464-40ae-847d-82b4148d4b12">
