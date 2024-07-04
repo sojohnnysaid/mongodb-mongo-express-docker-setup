@@ -1,0 +1,38 @@
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - mongo_data:/data/db
+      - ./file_drop_zone:/my_file_drop_zone
+    networks:
+      - mongo_network
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    depends_on:
+      - mongo
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=mongoadin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=secret
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=pass
+    ports:
+      - "8081:8081"
+    networks:
+      - mongo_network
+
+networks:
+  mongo_network:
+    driver: bridge
+
+volumes:
+  mongo_data:
+    driver: local
